@@ -25,8 +25,12 @@ const linkAction = () => {
 
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
+/*=============== Change Background Header ===============*/
+const scrollHeader = () => {
+	const header = document.getElementById('header')
+	this.scrollY >= 50 ? header.classList.add('header-bg') : header.classList.remove('header-bg')
+}
 
-/*=============== CHANGE BACKGROUND HEADER ===============*/
+window.addEventListener('scroll', scrollHeader)
 
-
-/*=============== SCROLL REVEAL ANIMATION ===============*/
+/*=============== Scroll Reveal Animation ===============*/
