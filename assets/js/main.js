@@ -46,3 +46,31 @@ sr.reveal(`.home__description`, {delay: 1200})
 sr.reveal(`.home__button`, {delay: 1400})
 sr.reveal(`.home__footer`, {delay: 1600})
 sr.reveal(`.home__data div`, {origin: 'right', interval: 100, delay: 1800})
+
+/*=============== Timer ===============*/
+const timerHours = document.getElementById('hours')
+const timerMinutes = document.getElementById('minutes')
+const timerSeconds = document.getElementById('seconds')
+
+setInterval(() => {
+	let date = new Date()
+	let hours = 23 - date.getHours()
+	let minutes = 59 - date.getMinutes()
+	let seconds = 59 - date.getSeconds()
+
+	timerHours.innerHTML = hours
+
+	if (minutes < 10 && seconds < 10) {
+		timerMinutes.innerHTML = "0" + minutes
+		timerSeconds.innerHTML = "0" + seconds
+	} else if (minutes < 10 && seconds >= 10) {
+		timerMinutes.innerHTML = "0" + minutes
+		timerSeconds.innerHTML = seconds
+	} else if (seconds < 10 && minutes >= 10) {
+		timerMinutes.innerHTML = minutes
+		timerSeconds.innerHTML = "0" + seconds
+	} else {
+		timerMinutes.innerHTML = minutes
+		timerSeconds.innerHTML = seconds
+	}
+}, 1000)
